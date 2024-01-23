@@ -1,0 +1,87 @@
+@import "../../../app/colors.module.scss";
+
+.imgPresentation {
+  width: 100%;
+  max-width: 550px;
+}
+
+.subTitle {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: $lightRed;
+}
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 50px;
+}
+
+.description {
+  font-size: 1.5rem;
+  color: $lightGray;
+  margin: 20px 0 40px 0;
+}
+
+.btnCta {
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 14px 30px;
+  border: 2px solid $lightRed;
+  gap: 25px;
+  .btnImg {
+    width: 11px;
+  }
+
+  &:hover {
+    background-color: transparent;
+    border-color: $darkRed;
+    color: $lightGray;
+  }
+}
+
+.arrowDown {
+  width: 30px;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 30px;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .imgPresentation {
+    display: flex;
+    margin: 50px auto;
+  }
+  .title {
+    font-size: 1.6rem;
+    line-height: 34px;
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+  .btnCta {
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 442px) {
+  .subTitle {
+    font-size: 0.9rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+}
