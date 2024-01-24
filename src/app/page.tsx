@@ -1,6 +1,7 @@
 import HeaderNoAuth from "@/components/HomeNoAuth/HeaderNoAuth";
 import styles from "./HomeNoAuth.module.scss";
 import PresentationSection from "@/components/HomeNoAuth/PresentationSection";
+import CardsSection from "@/components/HomeNoAuth/CardsSection";
 
 //Passo 1 - Configuração do projeto
 
@@ -12,6 +13,8 @@ const HomeNoAuth = () => {
         <HeaderNoAuth />
         <PresentationSection />
       </div>
+      {/*Passo 7 - Criaçaõ da seção de cards */}
+      <CardsSection />
     </>
   );
 };
