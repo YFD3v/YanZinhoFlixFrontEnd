@@ -1,10 +1,16 @@
+import { CourseType } from "@/services/courseService";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import SlideCard from "../SlideCard";
 
 //Passo 8 - criando a seção de slides
 //Instalando @splidejs/react-splide
+//Passo 10 - finalização da estrutura dos slides
+interface props {
+  courses: CourseType[];
+}
 
-const SlideComponent = () => {
+const SlideComponent = ({ courses }: props) => {
   return (
     <>
       <div>
@@ -16,7 +22,11 @@ const SlideComponent = () => {
             pagination: false,
           }}
         >
-          <SplideSlide></SplideSlide>
+          {courses?.map((course) => (
+            <SplideSlide key={course.id}>
+              <SlideCard course={course} />
+            </SplideSlide>
+          ))}
         </Splide>
       </div>
     </>
