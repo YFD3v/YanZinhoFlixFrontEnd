@@ -1,0 +1,43 @@
+@import "../../../app/colors.module.scss";
+.header {
+  background-color: black;
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    gap: 1rem;
+    .headerLogo {
+      width: 180px;
+      cursor: pointer;
+    }
+    .headerBtn {
+      margin: 0px 5px;
+      border: 1px solid $lightGray;
+      color: $lightGray;
+      &:hover {
+        border-color: $lightRed;
+        color: white;
+        background-color: transparent;
+      }
+    }
+    @media (max-width: 575px) {
+      padding: 20px 1rem;
+    }
+    @media (max-width: 380px) {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .headerContainer {
+    padding: 20px 1rem;
+  }
+}
+@media (max-width: 380px) {
+  .headerContainer {
+    justify-content: center;
+  }
+}
