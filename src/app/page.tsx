@@ -5,6 +5,7 @@ import PresentationSection from "@/components/HomeNoAuth/PresentationSection";
 import CardsSection from "@/components/HomeNoAuth/CardsSection";
 import SlideSection from "@/components/HomeNoAuth/SlideSection";
 import courseService, { CourseType } from "@/services/courseService";
+import Footer from "@/components/common/Footer";
 
 //Passo 1 - Configuração do projeto
 
@@ -21,6 +22,8 @@ const HomeNoAuth = async () => {
       <CardsSection />
       {/*Passo 11 - Colocando em tela os slides */}
       <SlideSection newestCourses={courses} />
+      {/*Passo 12 - criação do footer */}
+      <Footer />
     </>
   );
 };
