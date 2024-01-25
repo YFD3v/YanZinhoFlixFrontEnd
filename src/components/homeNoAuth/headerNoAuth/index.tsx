@@ -1,5 +1,4 @@
 "use client";
-
 import { Button, Container } from "reactstrap";
 import styles from "./styles.module.scss";
 import Link from "next/link";
