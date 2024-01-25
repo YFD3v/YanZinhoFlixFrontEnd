@@ -13,15 +13,38 @@ interface props {
 }
 
 const SlideComponent = ({ courses }: props) => {
+  let slideCount = courses.length >= 4 ? 4 : courses.length;
+
   return (
     <>
-      <div>
+      <div className="d-flex flex-column align-items-center py-4">
         <Splide
           options={{
             type: "loop",
-            perPage: 4,
+            perPage: slideCount,
             perMove: 2,
+            width: slideCount * 300,
             pagination: false,
+            arrows: slideCount >= 4 ? true : false,
+            drag: slideCount >= 4 ? true : false,
+            breakpoints: {
+              1200: {
+                perPage: slideCount >= 2 ? 2 : 1,
+                perMove: 1,
+                width: slideCount >= 2 ? 600 : 300,
+                arrows: slideCount >= 2 ? true : false,
+                drag: slideCount >= 2 ? true : false,
+              },
+              600: {
+                perPage: 1,
+                width: 300,
+                arrows: slideCount >= 1 ? true : false,
+                drag: slideCount >= 1 ? true : false,
+              },
+              300: {
+                width: 240,
+              },
+            },
           }}
         >
           {courses?.map((course) => (
