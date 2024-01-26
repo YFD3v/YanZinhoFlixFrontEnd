@@ -1,6 +1,6 @@
 import HeaderGeneric from "@/components/common/HeaderGeneric";
 import { Metadata } from "next";
-import styles from "./styles.module.scss";
+import styles from "./login.module.scss";
 import FormLogin from "@/components/Login/FormLogin";
 
 //Passo 17 - Estrutura pagina de login

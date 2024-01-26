@@ -2,7 +2,7 @@
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import styles from "./styles.module.scss";
 import Footer from "@/components/common/Footer";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import authService from "@/services/authService";
 import { useRouter } from "next/navigation";
 import ToastComponent from "@/components/common/Toast";
@@ -45,6 +45,14 @@ const FormRegister = () => {
       setToastMessage(`Houve um erro: ${data.message}`);
     }
   };
+
+  //Passo 19 - Criando a estrutura da página homeAuth
+  useEffect(() => {
+    if (sessionStorage.getItem("yanzinhoflix-token")) {
+      router.push("/home");
+    }
+  }, []);
+
   return (
     <>
       <Container className="py-5">

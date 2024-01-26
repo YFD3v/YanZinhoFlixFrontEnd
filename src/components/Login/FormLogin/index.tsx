@@ -19,6 +19,13 @@ const FormLogin = () => {
   const registerSuccess = query.get("registred");
   console.log(query.values);
 
+  //Passo 19 - criando a estrutura da página homeauth
+  useEffect(() => {
+    if (sessionStorage.getItem("yanzinhoflix-token")) {
+      router.push("/home");
+    }
+  }, []);
+
   useEffect(() => {
     if (registerSuccess === "true") {
       setToast({

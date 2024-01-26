@@ -7,6 +7,8 @@ import SlideSection from "@/components/HomeNoAuth/SlideSection";
 import courseService, { CourseType } from "@/services/courseService";
 import Footer from "@/components/common/Footer";
 import { AOSInit } from "../common/aos";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 //Passo 1 - Configuração do projeto
 const ContainerHomeNoAuth = async () => {
   //Passo 13 - instalação AOS foi adicionado data-aos e data-aos-dura
