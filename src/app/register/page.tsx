@@ -1,11 +1,13 @@
+//Passo 14 - registro
 import { Metadata } from "next";
 import styles from "./register.module.scss";
 import HeaderGeneric from "@/components/common/HeaderGeneric";
+import FormRegister from "@/components/Register/FormRegister";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/register"),
   title: "YanZinhoFlix - Registro",
-  //Passo 3 - configurando pastas e components
+
   icons: {
     icon: "/favicon.svg",
   },
@@ -18,9 +20,10 @@ export const metadata: Metadata = {
 
 const Register = () => {
   return (
-    <>
+    <div className={styles.container}>
       <HeaderGeneric btnContent="Faça login" logoUrl="/" btnUrl="/login" />
-    </>
+      <FormRegister />
+    </div>
   );
 };
 
