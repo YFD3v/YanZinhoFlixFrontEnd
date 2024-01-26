@@ -7,10 +7,6 @@ import FormRegister from "@/components/Register/FormRegister";
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/register"),
   title: "YanZinhoFlix - Registro",
-
-  icons: {
-    icon: "/favicon.svg",
-  },
   description: "Faça o seu cadastro em YanZinhoFlix",
   openGraph: {
     title: "YanZinhoFlix - Registro",
