@@ -4,6 +4,7 @@
 import FavoriteCategory from "./FavoriteCategory";
 import FeaturedCategory from "./FeaturedCategory";
 import FeaturedSection from "./FeaturedSection";
+import ListCategories from "./ListCategories";
 import NewestCategory from "./NewestCategory";
 
 const ContainerHomeAuth = () => {
@@ -13,6 +14,7 @@ const ContainerHomeAuth = () => {
       <FavoriteCategory />
       <NewestCategory />
       <FeaturedCategory />
+      <ListCategories />
     </>
   );
 };

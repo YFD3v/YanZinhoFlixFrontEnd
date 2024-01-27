@@ -2,7 +2,7 @@ import useSWR from "swr";
 import styles from "../styles.module.scss";
 import courseService from "@/services/courseService";
 import SlideComponent from "@/components/common/SlideComponent";
-
+//Passo 22 - criação da seção de favoritos
 const FavoriteCategory = () => {
   const { data, error } = useSWR("/favorites", courseService.getNewestCourses);
   if (error) return error;
