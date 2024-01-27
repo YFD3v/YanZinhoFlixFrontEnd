@@ -2,6 +2,7 @@
 "use client";
 
 import FavoriteCategory from "./FavoriteCategory";
+import FeaturedCategory from "./FeaturedCategory";
 import FeaturedSection from "./FeaturedSection";
 import NewestCategory from "./NewestCategory";
 
@@ -11,6 +12,7 @@ const ContainerHomeAuth = () => {
       <FeaturedSection />
       <FavoriteCategory />
       <NewestCategory />
+      <FeaturedCategory />
     </>
   );
 };
