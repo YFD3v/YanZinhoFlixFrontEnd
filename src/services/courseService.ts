@@ -21,7 +21,6 @@ export type CourseType = {
 const courseService = {
   getNewestCourses: async () => {
     const res = await api.get("/courses/newest").catch((err) => {
-      console.log({ message: err.message });
       return err.response;
     });
     return res;
@@ -37,10 +36,47 @@ const courseService = {
         },
       })
       .catch((err) => {
-        console.log(err.response.data.message);
         return err.response;
       });
     return res;
+  },
+  //Passo 22 - criação da seção de slides de favorito
+  addToFave: async (courseId: number | string) => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .post(
+        "/favorites",
+        { courseId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .catch((err) => err.response);
+    return res;
+  },
+  removeFav: async (courseId: number | string) => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .delete("/favorites", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        data: { courseId },
+      })
+      .catch((err) => err.response);
+    return res;
+  },
+  getFavCourses: async () => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .get("/favorites", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((err) => err.response);
   },
 };
 
