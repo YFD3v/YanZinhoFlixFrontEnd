@@ -1,6 +1,7 @@
 //Passo 19 - criando a estrutura da página homeauth
 "use client";
 
+import Footer from "../common/Footer";
 import FavoriteCategory from "./FavoriteCategory";
 import FeaturedCategory from "./FeaturedCategory";
 import FeaturedSection from "./FeaturedSection";
@@ -15,6 +16,7 @@ const ContainerHomeAuth = () => {
       <NewestCategory />
       <FeaturedCategory />
       <ListCategories />
+      <Footer />
     </>
   );
 };
