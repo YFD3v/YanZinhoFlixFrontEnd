@@ -26,6 +26,22 @@ const courseService = {
     });
     return res;
   },
+  //Passo 20 - Criação da seção de cursos em destaque
+  getFeaturedCourses: async () => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+
+    const res = await api
+      .get("/courses/featured", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        return err.response;
+      });
+    return res;
+  },
 };
 
 export default courseService;

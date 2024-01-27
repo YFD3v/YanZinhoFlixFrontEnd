@@ -1,9 +1,12 @@
 //Passo 19 - criando a estrutura da página homeauth
+"use client";
+import HeaderAuth from "../common/HeaderAuth";
+import FeaturedSection from "./FeaturedSection";
 
 const ContainerHomeAuth = () => {
   return (
     <>
-      <p>Você está logado</p>
+      <FeaturedSection />
     </>
   );
 };

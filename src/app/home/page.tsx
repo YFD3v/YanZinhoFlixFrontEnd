@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 const HomeAuth = () => {
   return (
     <>
-      <HeaderAuth />
       <ContainerHomeAuth />
     </>
   );
