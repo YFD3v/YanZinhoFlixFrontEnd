@@ -4,13 +4,13 @@ import { Button, Col, Container, Row } from "reactstrap";
 import styles from "./styles.module.scss";
 import UserForm from "./UserForm";
 import { useState } from "react";
-import PasswordForm from "./Password";
+import PasswordForm from "./PasswordForm";
 
 const ProfileContainer = () => {
   const [form, setForm] = useState("");
 
   return (
-    <>
+    <div className={form === "passwordForm" ? styles.formPassword : ""}>
       <Container>
         <p className={styles.title}>Minha Conta</p>
         <Row className="pt-3 pb-5">
@@ -33,7 +33,7 @@ const ProfileContainer = () => {
           <Col md>{form === "userForm" ? <UserForm /> : <PasswordForm />}</Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

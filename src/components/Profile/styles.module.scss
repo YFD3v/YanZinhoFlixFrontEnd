@@ -132,6 +132,12 @@
   }
 }
 
+@media (min-width: 800px) {
+  .formPassword {
+    margin-bottom: 250px;
+  }
+}
+
 @media (max-width: 991px) {
   .title {
     text-align: center;
