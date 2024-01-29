@@ -3,14 +3,25 @@ import Modal from "react-modal";
 import { Container, Form, Input } from "reactstrap";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import profileService from "@/services/profileService";
 
 //Passo 19 - criando a estrutura da pagina homeAuth
 
 const HeaderAuth = () => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
+  const [initials, setInitials] = useState("");
+
+  //Passo 26- conexão com o backend do usuário
+  useEffect(() => {
+    profileService.fetchCurrent().then(({ firstName, lastName }) => {
+      const firstInitial = firstName.slice(0, 1);
+      const lastInitial = lastName.slice(0, 1);
+      setInitials(`${firstInitial}${lastInitial}`);
+    });
+  }, []);
 
   const handleModal = () => {
     if (modalOpen == true) {
@@ -50,7 +61,7 @@ const HeaderAuth = () => {
             className={styles.searchImg}
           />
           <p className={styles.userProfile} onClick={handleModal}>
-            AB
+            {initials}
           </p>
         </div>
         <Modal
