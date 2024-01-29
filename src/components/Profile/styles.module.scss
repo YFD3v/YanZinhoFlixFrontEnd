@@ -93,6 +93,8 @@
 }
 
 .formBtn {
+  display: block;
+  margin: 10px auto;
   border-color: $lightRed;
   text-align: center;
   color: white;
@@ -121,8 +123,12 @@
   padding: 14px 0;
   &:hover {
     background-color: transparent;
-    border-color: $lightRed;
-    color: $lightGray;
+    color: $lightRed;
+  }
+  &:active,
+  &:focus {
+    background-color: transparent;
+    box-shadow: none;
   }
 }
 
