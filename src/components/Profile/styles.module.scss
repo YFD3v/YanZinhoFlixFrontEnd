@@ -1,0 +1,167 @@
+@import "../../app/colors.module.scss";
+
+.form {
+  border: 1px solid $darkGray;
+  padding: 20px 0px;
+  max-width: 100%;
+}
+
+.formName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 80%;
+  margin: 20px auto;
+  text-transform: uppercase;
+}
+
+.nameAbbreviation {
+  font-size: 2.5rem;
+  font-weight: bold;
+  min-height: 70px;
+  min-width: 70px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memberTime {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.userName {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.memberTimeImg {
+  width: 20px;
+}
+
+.memberText {
+  font-size: 0.9rem;
+  color: $lightGray;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.inputFlexDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.inputFlex {
+  width: 250px;
+  background-color: transparent;
+  border: 1px solid $darkGray;
+  color: white;
+  text-transform: uppercase;
+  &::placeholder {
+    color: $lightGray;
+  }
+  &:focus {
+    box-shadow: none;
+    border-color: $lightRed;
+    color: white;
+    background-color: transparent;
+  }
+}
+
+.inputNormalDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.input {
+  @extend .inputFlex;
+  text-transform: lowercase;
+  width: 550px;
+}
+
+.formBtn {
+  border-color: $lightRed;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  padding: 6px 20px;
+  &:hover {
+    border-color: $darkRed;
+    background-color: transparent;
+    color: $lightGray;
+  }
+}
+.title {
+  margin-top: 40px;
+  font-size: 2.8rem;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
+.renderForm {
+  display: block;
+  width: 200px;
+  border: 1px solid $darkGray;
+  background-color: transparent;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 14px 0;
+  &:hover {
+    background-color: transparent;
+    border-color: $lightRed;
+    color: $lightGray;
+  }
+}
+
+@media (max-width: 991px) {
+  .title {
+    text-align: center;
+  }
+  .btnColumn {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputFlexDiv {
+    gap: 15px;
+  }
+  .inputFlex {
+    width: 400px;
+  }
+}
+
+@media (max-width: 460px) {
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .nameAbbreviation {
+    font-size: 1.8rem;
+    min-height: 60px;
+    min-width: 60px;
+  }
+
+  .userName {
+    font-size: 1.5rem;
+  }
+
+  .inputFlex {
+    width: 100%;
+  }
+}
