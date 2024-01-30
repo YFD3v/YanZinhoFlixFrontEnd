@@ -1,0 +1,20 @@
+.footer,
+.header {
+  background-color: black;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.searchResult {
+  flex: 1 0 auto;
+}
+
+@media (max-width: 350px) {
+  .searchResult {
+    padding: 20px 15px;
+  }
+}
