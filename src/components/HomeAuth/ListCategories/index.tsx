@@ -1,6 +1,7 @@
 import categoriesService, { CategoryType } from "@/services/categoriesService";
 import useSWR from "swr";
 import ListCategoriesSlide from "./slides";
+import PageSpinner from "@/components/common/Spinner";
 //Passo 24 Criação da seção da lista de slides
 const ListCategories = () => {
   //Esse swr é um facilitador para fazer fetch no backEnd
@@ -10,12 +11,7 @@ const ListCategories = () => {
     categoriesService.getCategories
   );
   if (error) return error;
-  if (!data)
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+  if (!data) return <PageSpinner></PageSpinner>;
   return (
     <>
       {data.data.categories?.map((category: CategoryType) => (

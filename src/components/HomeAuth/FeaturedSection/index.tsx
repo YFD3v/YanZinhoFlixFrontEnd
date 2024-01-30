@@ -4,6 +4,7 @@ import courseService, { CourseType } from "@/services/courseService";
 import HeaderAuth from "@/components/common/HeaderAuth";
 import { Button, Container } from "reactstrap";
 import Link from "next/link";
+import PageSpinner from "@/components/common/Spinner";
 
 //Passo 20 - criação da seção ed cursos em destaque
 
@@ -12,12 +13,7 @@ const FeaturedSection = () => {
 
   const { data, error } = useSWR("/featured", courseService.getFeaturedCourses);
   if (error) return error;
-  if (!data)
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+  if (!data) return <PageSpinner></PageSpinner>;
 
   return (
     <>
