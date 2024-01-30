@@ -13,6 +13,8 @@ const FeaturedSection = () => {
 
   const { data, error } = useSWR("/featured", courseService.getFeaturedCourses);
   if (error) return error;
+  //Passo 29 - criando o loader de spinner
+  //Antes era so um return Loading...
   if (!data) return <PageSpinner></PageSpinner>;
 
   return (

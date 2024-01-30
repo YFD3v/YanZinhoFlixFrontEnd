@@ -9,12 +9,9 @@ const FeaturedCategory = () => {
 
   const { data, error } = useSWR("/featured", courseService.getFeaturedCourses);
   if (error) return error;
-  if (!data)
-    return (
-      <PageSpinner>
-
-      </PageSpinner>
-    );
+  //Passo 29 - criando o loader de spinner
+  //Antes era so um return Loading...
+  if (!data) return <PageSpinner></PageSpinner>;
   return (
     <>
       <p className={styles.titleCategory}>EM DESTAQUE: </p>

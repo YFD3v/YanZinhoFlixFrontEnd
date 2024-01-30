@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Container, Form, Input } from "reactstrap";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import profileService from "@/services/profileService";
 
@@ -13,6 +13,21 @@ const HeaderAuth = () => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [initials, setInitials] = useState("");
+
+  //Passo 30 - BackEnd do search
+  const [searchName, setSearchName] = useState("");
+  const handleSearch = async (ev: FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    router.push(`search?name=${searchName}`);
+    setSearchName("");
+  };
+
+  const handleSearchClick = () => {
+    router.push(`search?name=${searchName}`);
+    setSearchName("");
+  };
+
+  //Fim passo 30
 
   //Passo 26- conexão com o backend do usuário
   useEffect(() => {
@@ -47,18 +62,23 @@ const HeaderAuth = () => {
           />
         </Link>
         <div className="d-flex align-items-center">
-          <Form>
+          <Form onSubmit={handleSearch}>
             <Input
               name="search"
               type="search"
               className={styles.input}
               placeholder="Pesquise..."
+              value={searchName}
+              onChange={(ev) =>
+                setSearchName(ev.currentTarget.value.toLowerCase())
+              }
             />
           </Form>
           <img
             src="/homeAuth/iconSearch.svg"
             alt="LupaHeader"
             className={styles.searchImg}
+            onClick={handleSearchClick}
           />
           <p className={styles.userProfile} onClick={handleModal}>
             {initials}

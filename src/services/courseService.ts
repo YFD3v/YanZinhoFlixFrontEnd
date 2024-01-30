@@ -78,6 +78,18 @@ const courseService = {
       })
       .catch((err) => err.response);
   },
+  //Passo 30 - backend do search
+  getSearch: async (name: string) => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .get(`/courses/search?name=${name}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((err) => err.response);
+    return res;
+  },
 };
 
 export default courseService;

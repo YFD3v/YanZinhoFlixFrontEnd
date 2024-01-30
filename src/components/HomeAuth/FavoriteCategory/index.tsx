@@ -7,6 +7,8 @@ import PageSpinner from "@/components/common/Spinner";
 const FavoriteCategory = () => {
   const { data, error } = useSWR("/favorites", courseService.getNewestCourses);
   if (error) return error;
+  //Passo 29 - criando o loader de spinner
+  //Antes era so um return Loading...
   if (!data) return <PageSpinner />;
   return (
     <>

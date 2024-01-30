@@ -9,6 +9,8 @@ const NewestCategory = () => {
 
   const { data, error } = useSWR("/newest", courseService.getNewestCourses);
   if (error) return error;
+  //Passo 29 - criando o loader de spinner
+  //Antes era so um return Loading...
   if (!data) return <PageSpinner></PageSpinner>;
   return (
     <>
