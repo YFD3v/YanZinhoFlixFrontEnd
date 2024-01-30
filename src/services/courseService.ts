@@ -78,6 +78,7 @@ const courseService = {
       })
       .catch((err) => err.response);
   },
+
   //Passo 30 - backend do search
   getSearch: async (name: string) => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
@@ -89,6 +90,42 @@ const courseService = {
       })
       .catch((err) => err.response);
     return res;
+  },
+  //Passo 32 - Backend da pagine de curso
+  getEpisodes: async (id: number | string) => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .get(`/courses/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((err) => err.response);
+    return res;
+  },
+  like: async (courseId: number | string) => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .post(
+        `/likes`,
+        { courseId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .catch((err) => err.response);
+  },
+  removelike: async (courseId: number | string) => {
+    const token = sessionStorage.getItem("yanzinhoflix-token");
+    const res = await api
+      .delete(`/likes/${courseId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((err) => err.response);
   },
 };
 
