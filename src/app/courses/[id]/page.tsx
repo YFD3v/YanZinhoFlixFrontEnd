@@ -6,9 +6,6 @@ import CourseContainer from "@/components/CourseContainer";
 const CoursePage = () => {
   return (
     <>
-      <div className={styles.header}>
-        <HeaderAuth />
-      </div>
       <div>
         <CourseContainer />
       </div>

@@ -5,7 +5,7 @@ import SlideComponent from "@/components/common/SlideComponent";
 import PageSpinner from "@/components/common/Spinner";
 //Passo 22 - criação da seção de favoritos
 const FavoriteCategory = () => {
-  const { data, error } = useSWR("/favorites", courseService.getNewestCourses);
+  const { data, error } = useSWR("/favorites", courseService.getFavCourses);
   if (error) return error;
   //Passo 29 - criando o loader de spinner
   //Antes era so um return Loading...
@@ -14,7 +14,7 @@ const FavoriteCategory = () => {
     <>
       <p className={styles.titleCategory}>Meus favoritos:</p>
       {data.data.courses?.length >= 1 ? (
-        <SlideComponent courses={data.data} />
+        <SlideComponent courses={data.data.courses} />
       ) : (
         <p className="text-center pt-3 h5">
           <strong>Não há cursos favoritos :(</strong>

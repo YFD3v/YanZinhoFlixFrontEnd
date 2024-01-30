@@ -41,7 +41,7 @@ const courseService = {
     return res;
   },
   //Passo 22 - criação da seção de slides de favorito
-  addToFave: async (courseId: number | string) => {
+  addToFav: async (courseId: number | string) => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
     const res = await api
       .post(
@@ -59,11 +59,10 @@ const courseService = {
   removeFav: async (courseId: number | string) => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
     const res = await api
-      .delete("/favorites", {
+      .delete("/favorites/" + courseId, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        data: { courseId },
       })
       .catch((err) => err.response);
     return res;
@@ -77,6 +76,7 @@ const courseService = {
         },
       })
       .catch((err) => err.response);
+    return res;
   },
 
   //Passo 30 - backend do search
