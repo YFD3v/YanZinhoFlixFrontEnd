@@ -133,7 +133,7 @@ const CourseContainer = () => {
           </p>
         ) : (
           course?.episodes?.map((episode) => (
-            <EpisodeList key={episode.id} episode={episode} />
+            <EpisodeList key={episode.id} course={course} episode={episode} />
           ))
         )}
       </Container>

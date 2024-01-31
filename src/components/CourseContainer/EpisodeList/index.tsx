@@ -1,11 +1,18 @@
-import { EpisodeType } from "@/services/courseService";
+import { CourseType, EpisodeType } from "@/services/courseService";
 import styles from "./styles.module.scss";
+import { useRouter } from "next/navigation";
 
 interface props {
+  course: CourseType;
   episode: EpisodeType;
 }
+//Passo 33 - visual da pagina do curso
 
-const EpisodeList = ({ episode }: props) => {
+const EpisodeList = ({ episode, course }: props) => {
+  //Passo 34- criação da estrutura da pagina de episodios
+  const router = useRouter();
+  /*Fim passo 34 */
+
   const handleSecondsToMin = (totalSeconds: number) => {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % minutes;
@@ -16,9 +23,19 @@ const EpisodeList = ({ episode }: props) => {
     return result;
   };
 
+  //Passo 34- criação da estrutura da pagina de episodios
+  const handleEpisodePlayer = () => {
+    router.push(
+      `/courses/${course.id}/episodes/${episode.order - 1}?courseid=${
+        course.id
+      }`
+    );
+  };
+  /*Fim passo 34 */
+
   return (
     <>
-      <div className={styles.episodeCard}>
+      <div className={styles.episodeCard} onClick={handleEpisodePlayer}>
         <div className={styles.episodeOrderTime}>
           <p className={styles.episodeOrder}>Episódio Nº {episode.order}</p>
           <p className={styles.episodeTime}>
