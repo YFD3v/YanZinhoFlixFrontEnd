@@ -3,17 +3,57 @@
 import { useParams, useRouter } from "next/navigation";
 import HeaderGeneric from "../common/HeaderGeneric";
 import courseService, { CourseType } from "@/services/courseService";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PageSpinner from "../common/Spinner";
 import styles from "./styles.module.scss";
 import { Button, Container } from "reactstrap";
 import ReactPlayer from "react-player";
+import episodeService from "@/services/episodeService";
 //Criaçaõ da estrutuda ra pagina de episodios
 const EpisodeContainer = () => {
   const router = useRouter();
   const [course, setCourse] = useState<CourseType>();
   const { id } = useParams();
   const { episodeId }: any = useParams();
+
+  //Passo 35 - metodo do tempo do episodio
+  const [getEpisodeTime, setGetEpisodeTime] = useState(0);
+  const [episodeTime, setEpisodeTime] = useState(0);
+  const playerRef = useRef<ReactPlayer>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  //Adicionando +1 sempre no episodeId porque na rota vem como episodeOrder - 1 e como
+  const handleGetEpisodeTime = async () => {
+    const res = await episodeService.getWatchTime(parseFloat(episodeId) + 1);
+    if (res.data !== null) {
+      setGetEpisodeTime(res.data.seconds);
+    }
+    console.log(res.data);
+  };
+
+  const handleSetEpisodeTime = async () => {
+    await episodeService.setWatchTime({
+      episodeId: parseFloat(episodeId) + 1,
+      seconds: Math.round(episodeTime),
+    });
+  };
+
+  useEffect(() => {
+    handleGetEpisodeTime();
+  }, [router]);
+
+  const handlePlayerTime = () => {
+    playerRef.current?.seekTo(getEpisodeTime);
+    setIsReady(true);
+  };
+
+  if (isReady === true) {
+    setTimeout(() => {
+      handleSetEpisodeTime();
+    }, 1000 * 3);
+  }
+  //TO DO: MODIFICAR O SECONDS LONG DOS EPISODIOS DO CURSO DE RUBY
+  //Fim passo 35
   const getCourse = async function () {
     if (typeof id !== "string") return;
     const res = await courseService.getEpisodes(id);
@@ -21,11 +61,11 @@ const EpisodeContainer = () => {
       setCourse(res.data);
     }
   };
-
   useEffect(() => {
     getCourse();
   }, [id]);
 
+  if (course?.episodes === undefined) return <PageSpinner />;
   const handleLastEpisode = () => {
     router.push(
       `/courses/${course?.id}/episodes/${episodeId - 1}/?courseid=${course?.id}`
@@ -40,7 +80,17 @@ const EpisodeContainer = () => {
     );
   };
 
-  if (course?.episodes === undefined) return <PageSpinner />;
+  //Passo 35
+  if (parseFloat(episodeId) + 1 < course?.episodes?.length) {
+    console.log(
+      Math.round(episodeTime),
+      course.episodes[episodeId].secondsLong
+    );
+    if (Math.round(episodeTime) == course.episodes[episodeId].secondsLong) {
+      handleNextEpisode();
+    }
+  }
+
   return (
     <>
       <HeaderGeneric
@@ -59,6 +109,9 @@ const EpisodeContainer = () => {
               course.episodes[episodeId].videoUrl
             }&token=${sessionStorage.getItem("yanzinhoflix-token")}`}
             controls
+            ref={playerRef}
+            onStart={handlePlayerTime}
+            onProgress={(progress) => setEpisodeTime(progress.playedSeconds)}
           />
         )}
         <div className={styles.episodeButtons}>
