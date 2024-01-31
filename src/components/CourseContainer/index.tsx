@@ -7,6 +7,7 @@ import HeaderAuth from "../common/HeaderAuth";
 import { Button, Container } from "reactstrap";
 import PageSpinner from "../common/Spinner";
 import EpisodeList from "./EpisodeList";
+import { useRouter } from "next/navigation";
 //Passo 32 - backend da pagina de curso
 const CourseContainer = () => {
   const { id } = useParams();
@@ -31,6 +32,21 @@ const CourseContainer = () => {
   useEffect(() => {
     getCourse();
   }, [id]);
+
+  //Passo 36 - implementando autenticação em todas as páginas
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("yanzinhoflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) return <PageSpinner />;
+  //Fim passo 36
 
   //Passo 33 -  visual da pagina de curso
   //Estou colocando em baixo do useEffect, poís o handle depende do getCourse que faz o setLike e set Favorite

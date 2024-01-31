@@ -16,6 +16,15 @@ const EpisodeContainer = () => {
   const { id } = useParams();
   const { episodeId }: any = useParams();
 
+  //Passo 36 - implementando autenticação em todas as páginas
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (!sessionStorage.getItem("yanzinhoflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
   //Passo 35 - metodo do tempo do episodio
   const [getEpisodeTime, setGetEpisodeTime] = useState(0);
   const [episodeTime, setEpisodeTime] = useState(0);
@@ -90,6 +99,10 @@ const EpisodeContainer = () => {
       handleNextEpisode();
     }
   }
+
+  //Passo 36
+  if (loading) return <PageSpinner />;
+  //Fim passo 36
 
   return (
     <>

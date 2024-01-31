@@ -3,11 +3,27 @@
 import { Button, Col, Container, Row } from "reactstrap";
 import styles from "./styles.module.scss";
 import UserForm from "./UserForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PasswordForm from "./PasswordForm";
+import { useRouter } from "next/navigation";
+import PageSpinner from "../common/Spinner";
 
 const ProfileContainer = () => {
   const [form, setForm] = useState("");
+  //Passo 36 - implementando autenticação em todas as páginas
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("yanzinhoflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) return <PageSpinner />;
+  //Fim passo 36
 
   return (
     <div className={form === "passwordForm" ? styles.formPassword : ""}>

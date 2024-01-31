@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import CardSearch from "./Card";
+import { useRouter } from "next/router";
+import PageSpinner from "../common/Spinner";
 //passo 30 - backend do search
 export default function ContainerSearch() {
   const query = useSearchParams();
@@ -18,6 +20,21 @@ export default function ContainerSearch() {
   useEffect(() => {
     searchCourses();
   }, [searchName]);
+
+  //Passo 36 - implementando autenticação em todas as páginas
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("yanzinhoflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) return <PageSpinner />;
+  //Fim passo 36
 
   return (
     <>
