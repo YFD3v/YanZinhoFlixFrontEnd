@@ -8,22 +8,18 @@ import { Button, Container } from "reactstrap";
 import PageSpinner from "../common/Spinner";
 import EpisodeList from "./EpisodeList";
 import { useRouter } from "next/navigation";
-//Passo 32 - backend da pagina de curso
 const CourseContainer = () => {
   const { id } = useParams();
   const [course, setCourse] = useState<CourseType>();
 
-  //Passo 33 - visual da pagina de curso
   const [like, setLike] = useState(false);
   const [favorite, setFavorite] = useState(false);
-  //Fim passo 33
 
   const getCourse = async () => {
     if (typeof id !== "string") return;
     const res = await courseService.getEpisodes(id);
     if (res.status === 200) {
       setCourse(res.data);
-      //Passo 33 - visual da pagina de curso
       setLike(res.data.liked);
       setFavorite(res.data.favorited);
     }
@@ -33,7 +29,6 @@ const CourseContainer = () => {
     getCourse();
   }, [id]);
 
-  //Passo 36 - implementando autenticação em todas as páginas
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -46,10 +41,7 @@ const CourseContainer = () => {
   }, []);
 
   if (loading) return <PageSpinner />;
-  //Fim passo 36
 
-  //Passo 33 -  visual da pagina de curso
-  //Estou colocando em baixo do useEffect, poís o handle depende do getCourse que faz o setLike e set Favorite
   const handleLikeCourse = async () => {
     if (typeof id !== "string") return;
     if (like === true) {
@@ -73,7 +65,6 @@ const CourseContainer = () => {
   };
 
   if (course === undefined) return <PageSpinner />;
-  //Fim passo 33
 
   return (
     <>

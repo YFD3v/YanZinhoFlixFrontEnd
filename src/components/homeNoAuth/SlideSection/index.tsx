@@ -4,7 +4,6 @@ import styles from "./styles.module.scss";
 import { Button, Container } from "reactstrap";
 import SlideComponent from "@/components/common/SlideComponent";
 import Link from "next/link";
-//Passo 11 - Colocando em tela os slides
 interface props {
   newestCourses: CourseType[];
 }

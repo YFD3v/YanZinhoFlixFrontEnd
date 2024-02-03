@@ -9,14 +9,12 @@ import styles from "./styles.module.scss";
 import { Button, Container } from "reactstrap";
 import ReactPlayer from "react-player";
 import episodeService from "@/services/episodeService";
-//Criaçaõ da estrutuda ra pagina de episodios
 const EpisodeContainer = () => {
   const router = useRouter();
   const [course, setCourse] = useState<CourseType>();
   const { id } = useParams();
   const { episodeId }: any = useParams();
 
-  //Passo 36 - implementando autenticação em todas as páginas
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (!sessionStorage.getItem("yanzinhoflix-token")) {
@@ -25,13 +23,11 @@ const EpisodeContainer = () => {
       setLoading(false);
     }
   }, []);
-  //Passo 35 - metodo do tempo do episodio
   const [getEpisodeTime, setGetEpisodeTime] = useState(0);
   const [episodeTime, setEpisodeTime] = useState(0);
   const playerRef = useRef<ReactPlayer>(null);
   const [isReady, setIsReady] = useState(false);
 
-  //Adicionando +1 sempre no episodeId porque na rota vem como episodeOrder - 1 e como
   const handleGetEpisodeTime = async () => {
     const res = await episodeService.getWatchTime(parseFloat(episodeId) + 1);
     if (res.data !== null) {
@@ -61,8 +57,6 @@ const EpisodeContainer = () => {
       handleSetEpisodeTime();
     }, 1000 * 3);
   }
-  //TO DO: MODIFICAR O SECONDS LONG DOS EPISODIOS DO CURSO DE RUBY
-  //Fim passo 35
   const getCourse = async function () {
     if (typeof id !== "string") return;
     const res = await courseService.getEpisodes(id);
@@ -89,7 +83,6 @@ const EpisodeContainer = () => {
     );
   };
 
-  //Passo 35
   if (parseFloat(episodeId) + 1 < course?.episodes?.length) {
     console.log(
       Math.round(episodeTime),
@@ -100,9 +93,7 @@ const EpisodeContainer = () => {
     }
   }
 
-  //Passo 36
   if (loading) return <PageSpinner />;
-  //Fim passo 36
 
   return (
     <>

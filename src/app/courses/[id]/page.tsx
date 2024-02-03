@@ -2,7 +2,6 @@ import Footer from "@/components/common/Footer";
 import styles from "./coursePage.module.scss";
 import HeaderAuth from "@/components/common/HeaderAuth";
 import CourseContainer from "@/components/CourseContainer";
-//Passo 32 - backend da pagina de curso
 const CoursePage = () => {
   return (
     <>

@@ -3,9 +3,7 @@ import styles from "../styles.module.scss";
 import { FormEvent, useEffect, useState } from "react";
 import profileService from "@/services/profileService";
 import ToastComponent from "@/components/common/Toast";
-//Passo 27 - criando a estrutura do form de senha
 const PasswordForm = () => {
-  //Passo 28 - conexão com o backend do usuário em relação à senha
   const [passwords, setPasswords] = useState({
     currentPassword: "",
     newPassword: "",
@@ -79,8 +77,6 @@ const PasswordForm = () => {
       setTimeout(() => setToast({ ...toast, isOpen: false }), 1000 * 3);
     }
   };
-
-  //Fim passo 28
 
   return (
     <div>

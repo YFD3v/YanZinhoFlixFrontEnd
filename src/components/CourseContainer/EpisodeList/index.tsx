@@ -6,12 +6,9 @@ interface props {
   course: CourseType;
   episode: EpisodeType;
 }
-//Passo 33 - visual da pagina do curso
 
 const EpisodeList = ({ episode, course }: props) => {
-  //Passo 34- criação da estrutura da pagina de episodios
   const router = useRouter();
-  /*Fim passo 34 */
 
   const handleSecondsToMin = (totalSeconds: number) => {
     const minutes = Math.floor(totalSeconds / 60);
@@ -23,7 +20,6 @@ const EpisodeList = ({ episode, course }: props) => {
     return result;
   };
 
-  //Passo 34- criação da estrutura da pagina de episodios
   const handleEpisodePlayer = () => {
     router.push(
       `/courses/${course.id}/episodes/${episode.order - 1}?courseid=${
@@ -31,7 +27,6 @@ const EpisodeList = ({ episode, course }: props) => {
       }`
     );
   };
-  /*Fim passo 34 */
 
   return (
     <>

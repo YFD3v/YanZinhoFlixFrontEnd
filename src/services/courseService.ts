@@ -1,5 +1,4 @@
 import api from "./api";
-//Passo 9 - conexão com o backEnd
 
 export type EpisodeType = {
   id: number;
@@ -9,7 +8,6 @@ export type EpisodeType = {
   videoUrl: string;
   secondsLong: number;
 };
-//Na teoria, todo curso tem os episódios, mas como na tabela de cursos não tem os episodios diretamente, por causa das relações feitas no backEnd, foi feito dessa forma.
 export type CourseType = {
   id: number;
   name: string;
@@ -25,7 +23,6 @@ const courseService = {
     });
     return res;
   },
-  //Passo 20 - Criação da seção de cursos em destaque
   getFeaturedCourses: async () => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
 
@@ -40,7 +37,6 @@ const courseService = {
       });
     return res;
   },
-  //Passo 22 - criação da seção de slides de favorito
   addToFav: async (courseId: number | string) => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
     const res = await api
@@ -79,7 +75,6 @@ const courseService = {
     return res;
   },
 
-  //Passo 30 - backend do search
   getSearch: async (name: string) => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
     const res = await api
@@ -91,7 +86,6 @@ const courseService = {
       .catch((err) => err.response);
     return res;
   },
-  //Passo 32 - Backend da pagine de curso
   getEpisodes: async (id: number | string) => {
     const token = sessionStorage.getItem("yanzinhoflix-token");
     const res = await api

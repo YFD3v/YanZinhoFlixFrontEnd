@@ -1,5 +1,4 @@
 import api from "./api";
-//Passo 35- criação do metodo de tempo do espisódio
 interface watchTimeParams {
   episodeId: number;
   seconds: number;

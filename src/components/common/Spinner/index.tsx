@@ -1,5 +1,4 @@
 import { Spinner } from "reactstrap";
-//Passo 29 - criando o loader de spinner
 const PageSpinner = () => {
   return (
     <>

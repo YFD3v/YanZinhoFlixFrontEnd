@@ -1,4 +1,3 @@
-//Passo 16.2 Conectando o backend com o registro
 
 import { Toast, ToastBody } from "reactstrap";
 

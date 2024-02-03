@@ -1,5 +1,4 @@
 "use client";
-//Passo 25 - estrutura do profile
 import { Button, Col, Container, Row } from "reactstrap";
 import styles from "./styles.module.scss";
 import UserForm from "./UserForm";
@@ -10,7 +9,6 @@ import PageSpinner from "../common/Spinner";
 
 const ProfileContainer = () => {
   const [form, setForm] = useState("");
-  //Passo 36 - implementando autenticação em todas as páginas
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +21,6 @@ const ProfileContainer = () => {
   }, []);
 
   if (loading) return <PageSpinner />;
-  //Fim passo 36
 
   return (
     <div className={form === "passwordForm" ? styles.formPassword : ""}>

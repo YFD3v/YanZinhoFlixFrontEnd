@@ -1,9 +1,7 @@
-//Passo 8 - crianda seção de cards
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { CourseType } from "@/services/courseService";
 
-//Passo 10 - finalização da estrutura dos slides, foi substituido os valores da img e dos p
 interface props {
   course: CourseType;
 }

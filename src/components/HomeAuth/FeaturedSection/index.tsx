@@ -6,15 +6,9 @@ import { Button, Container } from "reactstrap";
 import Link from "next/link";
 import PageSpinner from "@/components/common/Spinner";
 
-//Passo 20 - criação da seção ed cursos em destaque
-
 const FeaturedSection = () => {
-  //Esse swr é um facilitador para fazer fetch no backEnd
-
   const { data, error } = useSWR("/featured", courseService.getFeaturedCourses);
   if (error) return error;
-  //Passo 29 - criando o loader de spinner
-  //Antes era so um return Loading...
   if (!data) return <PageSpinner></PageSpinner>;
 
   return (

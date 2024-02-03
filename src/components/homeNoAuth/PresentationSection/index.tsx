@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-//Passo 6 - criando seção da apresentação
 import styles from "./styles.module.scss";
 import { Container, Row, Col, Button } from "reactstrap";
 

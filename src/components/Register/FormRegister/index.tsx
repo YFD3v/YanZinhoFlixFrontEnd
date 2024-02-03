@@ -7,9 +7,7 @@ import authService from "@/services/authService";
 import { useRouter } from "next/navigation";
 import ToastComponent from "@/components/common/Toast";
 
-//Passo 15 - Criandoo  formulário de registro
 const FormRegister = () => {
-  //Passo 16 - Conectando o backend com o registro
   const router = useRouter();
   const [toastIsOpen, setToastIsOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
@@ -35,7 +33,6 @@ const FormRegister = () => {
 
     const { data, status } = await authService.register(params);
     if (status === 201) {
-      //Importante esse registred=true para a utilização do toast na pagina de login
       router.push("/login?registred=true");
     } else {
       setToastIsOpen(true);
@@ -46,7 +43,6 @@ const FormRegister = () => {
     }
   };
 
-  //Passo 19 - Criando a estrutura da página homeAuth
   useEffect(() => {
     if (sessionStorage.getItem("yanzinhoflix-token")) {
       router.push("/home");
@@ -178,7 +174,6 @@ const FormRegister = () => {
         isOpen={toastIsOpen}
         message={toastMessage}
       />
-      <script src="https://jsuites.net/v4/jsuites.js"></script>
     </>
   );
 };

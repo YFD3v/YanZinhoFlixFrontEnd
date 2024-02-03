@@ -7,7 +7,6 @@ import { Container } from "reactstrap";
 import CardSearch from "./Card";
 import { useRouter } from "next/router";
 import PageSpinner from "../common/Spinner";
-//passo 30 - backend do search
 export default function ContainerSearch() {
   const query = useSearchParams();
   const searchName: any = query.get("name");
@@ -21,7 +20,6 @@ export default function ContainerSearch() {
     searchCourses();
   }, [searchName]);
 
-  //Passo 36 - implementando autenticação em todas as páginas
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -34,7 +32,6 @@ export default function ContainerSearch() {
   }, []);
 
   if (loading) return <PageSpinner />;
-  //Fim passo 36
 
   return (
     <>

@@ -3,12 +3,9 @@ import styles from "../styles.module.scss";
 import courseService from "@/services/courseService";
 import SlideComponent from "@/components/common/SlideComponent";
 import PageSpinner from "@/components/common/Spinner";
-//Passo 22 - criação da seção de favoritos
 const FavoriteCategory = () => {
   const { data, error } = useSWR("/favorites", courseService.getFavCourses);
   if (error) return error;
-  //Passo 29 - criando o loader de spinner
-  //Antes era so um return Loading...
   if (!data) return <PageSpinner />;
   return (
     <>

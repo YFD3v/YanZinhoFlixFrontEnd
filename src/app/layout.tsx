@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-//Passo 1 - Configuração do projeto
 const inter = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -11,7 +10,6 @@ const inter = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/about"),
   title: "YanZinhoFlix",
-  //Passo 3 - configurando pastas e components
   icons: {
     icon: "/favicon.svg",
   },

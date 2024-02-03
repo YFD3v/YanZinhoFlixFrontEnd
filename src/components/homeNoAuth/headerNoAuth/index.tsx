@@ -2,13 +2,11 @@
 import { Button, Container } from "reactstrap";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-//Passo 4 - Criando o Header
 
 const HeaderNoAuth = () => {
   return (
     <>
       <div className={styles.ctaSection}>
-        {/* o Src esta definindo a pasta public como padrão por isso está uma url curta */}
         <img
           src="/homeNoAuth/logoCta.png"
           alt="logoCta"

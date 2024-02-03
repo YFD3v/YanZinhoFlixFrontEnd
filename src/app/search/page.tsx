@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   },
 };
 
-//Passo 30 - backend do search
 const Search = () => {
   return (
     <div className={styles.main}>

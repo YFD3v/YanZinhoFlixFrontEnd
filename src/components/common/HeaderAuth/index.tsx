@@ -7,14 +7,11 @@ import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import profileService from "@/services/profileService";
 
-//Passo 19 - criando a estrutura da pagina homeAuth
-
 const HeaderAuth = () => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [initials, setInitials] = useState("");
 
-  //Passo 30 - BackEnd do search
   const [searchName, setSearchName] = useState("");
   const handleSearch = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -27,9 +24,6 @@ const HeaderAuth = () => {
     setSearchName("");
   };
 
-  //Fim passo 30
-
-  //Passo 26- conexão com o backend do usuário
   useEffect(() => {
     profileService.fetchCurrent().then(({ firstName, lastName }) => {
       const firstInitial = firstName.slice(0, 1);

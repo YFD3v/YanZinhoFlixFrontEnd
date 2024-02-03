@@ -3,8 +3,6 @@ import styles from "./login.module.scss";
 import ContainerHomeAuth from "@/components/HomeAuth";
 import HeaderAuth from "@/components/common/HeaderAuth";
 
-//Passo 19 - criando a estrutura da página homeauth
-
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/register"),
   title: "YanZinhoFlix - Home",

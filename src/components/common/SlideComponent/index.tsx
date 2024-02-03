@@ -5,9 +5,6 @@ import {
 } from "../../../../node_modules/@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import SlideCard from "../SlideCard";
-//Passo 8 - criando a seção de slides
-//Instalando @splidejs/react-splide
-//Passo 10 - finalização da estrutura dos slides
 interface props {
   courses: CourseType[];
 }

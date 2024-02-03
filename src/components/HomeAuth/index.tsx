@@ -1,4 +1,3 @@
-//Passo 19 - criando a estrutura da página homeauth
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -12,7 +11,6 @@ import { useEffect, useState } from "react";
 import PageSpinner from "../common/Spinner";
 
 const ContainerHomeAuth = () => {
-  //Passo 36 - implementando autenticação em todas as páginas
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +23,6 @@ const ContainerHomeAuth = () => {
   }, []);
 
   if (loading) return <PageSpinner />;
-  //Fim passo 36
   return (
     <>
       <FeaturedSection />

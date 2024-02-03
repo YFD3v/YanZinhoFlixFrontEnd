@@ -1,4 +1,3 @@
-//Passo 14 - registro
 import { Metadata } from "next";
 import styles from "./register.module.scss";
 import HeaderGeneric from "@/components/common/HeaderGeneric";

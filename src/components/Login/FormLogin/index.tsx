@@ -7,19 +7,14 @@ import { FormEvent, useEffect, useState } from "react";
 import ToastComponent from "@/components/common/Toast";
 import authService from "@/services/authService";
 
-//Passo 17 - Estrutura da pagina de login
-
 const FormLogin = () => {
-  //Passo 18 - conexão do backend para login
   const router = useRouter();
   const [toast, setToast] = useState({ isOpen: false, color: "", message: "" });
 
-  //Pegando o parametro da query registred que vem da pagina de registro
   const query = useSearchParams();
   const registerSuccess = query.get("registred");
   console.log(query.values);
 
-  //Passo 19 - criando a estrutura da página homeauth
   useEffect(() => {
     if (sessionStorage.getItem("yanzinhoflix-token")) {
       router.push("/home");

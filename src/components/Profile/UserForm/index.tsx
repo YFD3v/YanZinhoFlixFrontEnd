@@ -4,9 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import profileService from "@/services/profileService";
 import ToastComponent from "@/components/common/Toast";
 import { useRouter } from "next/navigation";
-//Passo 25 - estrutura do profile
 const UserForm = () => {
-  //Passo 26 - conexão com o backend do usuário
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,7 +26,6 @@ const UserForm = () => {
   const month = date.toLocaleDateString("default", { month: "long" });
 
   useEffect(() => {
-    //Retornando o usuário para mostrar os valores já existentes no DB
     profileService
       .fetchCurrent()
       .then(({ firstName, lastName, phone, email, createdAt }) => {
@@ -55,7 +52,6 @@ const UserForm = () => {
       });
       setTimeout(() => setToast({ ...toast, isOpen: false }), 1000 * 3);
       if (formData.email != initialEmail) {
-        //Por que fazer isso?
         /*
           NO back-end definimos que o e-mail é unico, e ao alteramos esse e-mail. Aquela conta deixa de existir, então se eu não fizer o redireicionamento e deixar o usuário voltar para home, irá da um erro. Por isso limpamos o token e direcionamos ele para homeNoAuth
         */
@@ -71,7 +67,6 @@ const UserForm = () => {
       setTimeout(() => setToast({ ...toast, isOpen: false }), 1000 * 3);
     }
   };
-  //Fim passo 26
 
   return (
     <>

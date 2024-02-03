@@ -1,5 +1,3 @@
-//Passo 24 - criação da seção das lista de slides
-
 import api from "./api";
 import { CourseType } from "./courseService";
 

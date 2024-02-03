@@ -1,6 +1,5 @@
 import { Container } from "reactstrap";
 import styles from "./styles.module.scss";
-//Passo 7 - Criação da seção de cards
 const CardsSection = () => {
   return (
     <>

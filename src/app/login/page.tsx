@@ -3,8 +3,6 @@ import { Metadata } from "next";
 import styles from "./login.module.scss";
 import FormLogin from "@/components/Login/FormLogin";
 
-//Passo 17 - Estrutura pagina de login
-
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/login"),
   title: "YanZinhoFlix - Login",
