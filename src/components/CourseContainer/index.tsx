@@ -8,8 +8,12 @@ import { Button, Container } from "reactstrap";
 import PageSpinner from "../common/Spinner";
 import EpisodeList from "./EpisodeList";
 import { useRouter } from "next/navigation";
-const CourseContainer = () => {
-  const { id } = useParams();
+
+interface props {
+  id: string;
+}
+
+const CourseContainer = ({ id }: props) => {
   const [course, setCourse] = useState<CourseType>();
 
   const [like, setLike] = useState(false);

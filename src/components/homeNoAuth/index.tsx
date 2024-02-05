@@ -1,4 +1,3 @@
-export const revalidate = 3600 * 24;
 import HeaderNoAuth from "@/components/HomeNoAuth/HeaderNoAuth";
 import styles from "./HomeNoAuth.module.scss";
 import PresentationSection from "@/components/HomeNoAuth/PresentationSection";

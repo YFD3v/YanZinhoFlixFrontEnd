@@ -4,6 +4,7 @@ import HeaderAuth from "@/components/common/HeaderAuth";
 import { Metadata } from "next";
 
 import styles from "./search.module.scss";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/search"),
@@ -17,17 +18,19 @@ export const metadata: Metadata = {
 
 const Search = () => {
   return (
-    <div className={styles.main}>
-      <div className={styles.header}>
-        <HeaderAuth />
+    <Suspense>
+      <div className={styles.main}>
+        <div className={styles.header}>
+          <HeaderAuth />
+        </div>
+        <div className={styles.searchResult}>
+          <ContainerSearch />
+        </div>
+        <div className={styles.footer}>
+          <Footer />
+        </div>
       </div>
-      <div className={styles.searchResult}>
-        <ContainerSearch />
-      </div>
-      <div className={styles.footer}>
-        <Footer />
-      </div>
-    </div>
+    </Suspense>
   );
 };
 

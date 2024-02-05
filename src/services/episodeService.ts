@@ -37,6 +37,10 @@ const episodeService = {
       });
     return res;
   },
+  allIds: async () => {
+    const res = await api.get("/episodes/allids").catch((err) => err.response);
+    return res;
+  },
 };
 
 export default episodeService;

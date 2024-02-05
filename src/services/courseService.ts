@@ -121,6 +121,10 @@ const courseService = {
       })
       .catch((err) => err.response);
   },
+  allIds: async () => {
+    const res = await api.get("/courses/allids").catch((err) => err.response);
+    return res;
+  },
 };
 
 export default courseService;

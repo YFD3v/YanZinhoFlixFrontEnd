@@ -9,12 +9,15 @@ import styles from "./styles.module.scss";
 import { Button, Container } from "reactstrap";
 import ReactPlayer from "react-player";
 import episodeService from "@/services/episodeService";
-const EpisodeContainer = () => {
+
+interface props {
+  id: string;
+  episodeId: any;
+}
+
+const EpisodeContainer = ({ id, episodeId }: props) => {
   const router = useRouter();
   const [course, setCourse] = useState<CourseType>();
-  const { id } = useParams();
-  const { episodeId }: any = useParams();
-
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (!sessionStorage.getItem("yanzinhoflix-token")) {
